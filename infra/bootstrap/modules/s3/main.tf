@@ -1,8 +1,8 @@
 resource "aws_s3_bucket" "eks-bootstrap" {
   bucket = var.s3-bucket-name
-  
+
   tags = {
-    Name        = var.s3-bucket-tag
+    Name = var.s3-bucket-tag
   }
 }
 
@@ -32,7 +32,7 @@ resource "aws_s3_bucket_versioning" "enabled" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "sse-s3" {
-  bucket =  aws_s3_bucket.eks-bootstrap.id
+  bucket = aws_s3_bucket.eks-bootstrap.id
 
   rule {
     apply_server_side_encryption_by_default {
